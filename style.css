@@ -1,0 +1,333 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header & Flexbox Navigation */
+header {
+    background-color: #1f1f1f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 2px solid #ff5500;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ff5500;
+    background-color: rgba(255, 85, 0, 0.1);
+}
+
+/* Grid Main Layout */
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "sidebar main"
+        "sidebar main"
+        "footer footer";
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+sidebar {
+    grid-area: sidebar;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+    border: 1px solid #2a2a2a;
+}
+
+sidebar h3 {
+    color: #ff5500;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+}
+
+sidebar ul {
+    list-style: none;
+}
+
+sidebar li {
+    margin-bottom: 12px;
+    color: #ccc;
+    font-size: 15px;
+}
+
+.status-active {
+    color: #00ff66;
+    font-weight: bold;
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Card Section */
+.cards-section h2, .gallery-section h2 {
+    margin-bottom: 15px;
+    color: #ff5500;
+}
+
+.card-row {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.card {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 85, 0, 0.35);
+    border-color: #ff5500;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #2a2a2a;
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.card-btn {
+    background-color: #ff5500;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.card-btn:hover {
+    background-color: #e04b00;
+}
+
+.card-btn:active {
+    transform: scale(0.98);
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+    border: 1px solid #333;
+    background-color: #2a2a2a;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.caption-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 10px;
+}
+
+.gallery-item:hover .caption-overlay {
+    opacity: 1;
+}
+
+.caption-overlay h4 {
+    color: #ff5500;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: #1f1f1f;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #333;
+    color: #888;
+}
+
+/* Modal Popup Window */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #1f1f1f;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #ff5500;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(255, 85, 0, 0.4);
+    animation: modalSlide 0.3s ease-out;
+}
+
+@keyframes modalSlide {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ff5500;
+}
+
+#modalTitle {
+    color: #ff5500;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.modal-body-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat-item {
+    background-color: #121212;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.stat-item strong {
+    font-size: 18px;
+    color: #fff;
+}

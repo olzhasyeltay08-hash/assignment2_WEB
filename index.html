@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACEIT Player Stats Assignment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Task 0 & Part 1: Flexbox Header -->
+    <header>
+        <div class="logo">FACEIT Portal</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-item active">Home</a></li>
+            <li><a href="#leaderboards" class="nav-item">Leaderboards</a></li>
+            <li><a href="#tournaments" class="nav-item">Tournaments</a></li>
+            <li><a href="https://www.faceit.com/ru/players/olzhixx/cs2" target="_blank" class="nav-item">Profile</a></li>
+        </ul>
+    </header>
+
+    <!-- Part 2: Grid Layout Container -->
+    <div class="container" id="home">
+        
+        <sidebar>
+            <h3>Dashboard</h3>
+            <ul>
+                <li><strong>Region:</strong> EU</li>
+                <li><strong>Game:</strong> CS2</li>
+                <li><strong>Status:</strong> <span class="status-active">Active</span></li>
+                <li><strong>Matches Played:</strong> 1,420</li>
+            </ul>
+        </sidebar>
+
+        <main>
+            <!-- Part 1, Task 1: 3 Initial Cards (Level 1, Level 4, Level 10) -->
+            <section class="cards-section" id="leaderboards">
+                <h2>Featured Players</h2>
+                <div class="card-row">
+                    
+                    <div class="card">
+                        <img src="images/1.jpg" alt="Level 1 Player">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-title">Level 1 FACEIT</div>
+                                <div class="card-text">Very weak player. Just started playing competitive matches and learning basic mechanics.</div>
+                            </div>
+                            <button class="card-btn" onclick="openStatsModal('Level 1 FACEIT', '100 Elo', '0.65', '32%', '140', '22%')">View Stats</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="images/4.jpg" alt="Level 4 Player">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-title">Level 4 FACEIT</div>
+                                <div class="card-text">Default player. Average skill level with standard game sense and aim capabilities.</div>
+                            </div>
+                            <button class="card-btn" onclick="openStatsModal('Level 4 FACEIT', '950 Elo', '1.05', '50%', '520', '41%')">View Stats</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="10lvl.png" alt="Level 10 Player">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-title">Level 10 FACEIT</div>
+                                <div class="card-text">Already a normal, high-tier player. Excellent utility usage, aim, and map awareness.</div>
+                            </div>
+                            <button class="card-btn" onclick="openStatsModal('Level 10 FACEIT', '2450 Elo', '1.42', '64%', '2,800', '58%')">View Stats</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Part 2, Task 3: 9 Images Gallery (Level 2 to Level 10 Progression) -->
+            <section class="gallery-section" id="tournaments">
+                <h2>FACEIT Level Progression (Level 2 to Level 10)</h2>
+                <div class="gallery-grid">
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 2 FACEIT', 'Elo range: 501 - 750. Novice players building fundamental skills.')">
+                        <img src="images/1.jpg" alt="Level 2">
+                        <div class="caption-overlay">
+                            <h4>Level 2 FACEIT</h4>
+                            <p>Elo: 501 - 750</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 3 FACEIT', 'Elo range: 751 - 900. Beginner tier moving towards average rank.')">
+                        <img src="images/2.jpg" alt="Level 3">
+                        <div class="caption-overlay">
+                            <h4>Level 3 FACEIT</h4>
+                            <p>Elo: 751 - 900</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 4 FACEIT', 'Elo range: 901 - 1050. Standard average FACEIT level.')">
+                        <img src="images/3.png" alt="Level 4">
+                        <div class="caption-overlay">
+                            <h4>Level 4 FACEIT</h4>
+                            <p>Elo: 901 - 1050</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 5 FACEIT', 'Elo range: 1051 - 1200. Intermediate rank with solid mechanical control.')">
+                        <img src="images/4.jpg" alt="Level 5">
+                        <div class="caption-overlay">
+                            <h4>Level 5 FACEIT</h4>
+                            <p>Elo: 1051 - 1200</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 6 FACEIT', 'Elo range: 1201 - 1350. Above average game knowledge and execution.')">
+                        <img src="images/5.webp" alt="Level 6">
+                        <div class="caption-overlay">
+                            <h4>Level 6 FACEIT</h4>
+                            <p>Elo: 1201 - 1350</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 7 FACEIT', 'Elo range: 1351 - 1530. Advanced level players aiming for high competitive ranks.')">
+                        <img src="images/6.jpg" alt="Level 7">
+                        <div class="caption-overlay">
+                            <h4>Level 7 FACEIT</h4>
+                            <p>Elo: 1351 - 1530</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 8 FACEIT', 'Elo range: 1531 - 1750. Expert level with strong tactical understanding.')">
+                        <img src="images/7.png" alt="Level 8">
+                        <div class="caption-overlay">
+                            <h4>Level 8 FACEIT</h4>
+                            <p>Elo: 1531 - 1750</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 9 FACEIT', 'Elo range: 1751 - 2000. Semi-pro potential level. High consistency.')">
+                        <img src="images/8.jpg" alt="Level 9">
+                        <div class="caption-overlay">
+                            <h4>Level 9 FACEIT</h4>
+                            <p>Elo: 1751 - 2000</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openGalleryModal('Level 10 FACEIT', 'Elo range: 2001+. Highest rank on FACEIT. Professional-level skillset.')">
+                        <img src="images/9.jpg" alt="Level 10">
+                        <div class="caption-overlay">
+                            <h4>Level 10 FACEIT</h4>
+                            <p>Elo: 2001+</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Student AITU. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <!-- Modal Popup Window -->
+    <div id="statsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Player Stats</h2>
+            <div id="modalBody" class="modal-body-grid">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
